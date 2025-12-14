@@ -1,6 +1,10 @@
 // import express
 const express = require('express')
 const userController = require('../controller/userController')
+const bookController = require('../controller/bookController')
+const jwtMiddleware = require('../middlewares/jwtMiddleware')
+
+
 // create Router object
 const router = new express.Router()
 
@@ -12,4 +16,11 @@ router.post('/login', userController.loginController)
 // googlelogin
 router.post('/google/sign-in', userController.googleLoginController)
 
+// -----------------------------authorised user ----------------------------------
+
+// add book
+router.post('/user/book/add',jwtMiddleware,bookController.addBookController)
+
+
+ 
 module.exports = router
