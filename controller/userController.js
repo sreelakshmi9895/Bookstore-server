@@ -104,4 +104,18 @@ console.log(error);
 res.status(500).json(error)
 }
 }
+
+// get allusers
+exports.getAllUsersController = async(req,res)=>{
+console.log("Inside getAllUsersController");
+try{
+    // all users other than admin
+const allUsers = await users.find({role:{$ne:"admin"}})
+res.status(200).json(allUsers)
+}catch(error){
+console.log(error);
+res.status(500).json(error)
+}
+}
+
 // admineditprofile
