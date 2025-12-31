@@ -57,3 +57,5 @@ router.get('/users/all',adminMiddleware,userController.getAllUsersController)
 router.put('/books/:id/update', adminMiddleware, bookController.updateBookStatusController)
 
 module.exports = router
+
+
