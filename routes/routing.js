@@ -43,6 +43,8 @@ router.put('/user/:id/edit',jwtMiddleware,multerMiddleware.single('picture'),use
 // get all books page
 router.delete('/books/:id',jwtMiddleware,bookController.deleteBookController)
 
+// make payment
+router.put('/books/:id/buy',jwtMiddleware,bookController.bookPaymentController)
 
 // -----------------------------authorised admin----------------------------------
 
@@ -52,9 +54,12 @@ router.get('/admin-books/all',adminMiddleware,bookController.getAllBooksControll
 // get all users
 router.get('/users/all',adminMiddleware,userController.getAllUsersController)
 
-// update  book status
+
 // update book status (ADMIN)
 router.put('/books/:id/update', adminMiddleware, bookController.updateBookStatusController)
+
+
+
 
 module.exports = router
 
